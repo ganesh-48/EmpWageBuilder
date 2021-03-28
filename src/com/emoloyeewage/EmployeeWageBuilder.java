@@ -1,5 +1,7 @@
 package com.emoloyeewage;
 
+import java.util.Random;
+
 public class EmployeeWageBuilder {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee wage problem");
@@ -8,17 +10,24 @@ public class EmployeeWageBuilder {
 		int IS_FULL_TIME = 2;
 		int EMP_RATE_PER_HRS = 20;
 		int salary , empHrs;
-		double empCheck = Math.floor(Math.random() * 10 ) % 3;
-		if(empCheck == IS_PART_TIME ) {
-			 empHrs = 8;
+		Random rand = new Random();
+		int empCheck = rand.nextInt(3);
+		switch(empCheck) {
+			case 1:
+				empHrs = 8;
+				System.out.println("Employee is Present");
+				break;
+			case 2:
+				empHrs = 4;
+				System.out.println("Employee is part time");
+
+				break;
+			default:
+				empHrs= 0;
+				System.out.println("Employee is Absent");
+				break;
 		}
-		else if(empCheck == IS_FULL_TIME ){
-			 empHrs = 4;
-		}
-		else {
-			 empHrs = 0;
-		}
-		salary=(empHrs * EMP_RATE_PER_HRS);
+		salary=(empHrs * EMP_RATE_PER_HRS );
 		System.out.println("salary:"+salary);
 	}
 }
